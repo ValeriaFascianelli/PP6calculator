@@ -39,8 +39,8 @@ int main (){
   cout << "Hi guys, what would you like to do? \n"; 
   cout << "Choose one of the following operation, choose one number:\n"; 
   cout << "1. Basic Operation\n"; 
-  cout <<   "2. Calculate the intercept of a line\n";
-  cout << "3.Solve a quadratic equation\n";
+  cout << "2. Calculate the intercept of a line\n";
+  cout << "3. Solve a quadratic equation\n";
   cout << "4. Calculate the length of 3D vectors\n";
   cout << "5. Calculate length of 4D vectors\n";
   cout << "6. Calculate the invariant mass of two particles" << endl;
@@ -103,8 +103,8 @@ int main (){
   
   if (choice == 3 || choice == 4){
     
-    if (choice == 3) {cout << "Give me the three coefficients of your equation\n";}
-    if (choice == 4) {cout << "Give me the components of your 3D vector";} 
+    if (choice == 3) {cout << "Give me the three coefficients of your equation \n";}
+    if (choice == 4) {cout << "Give me the components of your 3D vector \n ";} 
     
     while (loopControl == 0){
       
@@ -127,7 +127,7 @@ int main (){
   
  if (choice == 5 || choice == 6){
     
-    if (choice == 5) {cout << "Give me the four component of the 4D vector\n";}
+    if (choice == 5) {cout << "Give me the four component of the 4D vector\n remeber that the first input is the time component and the are three ones are x y z";}
     if (choice == 6) {cout << "Give me the masses and the momenta of the particles";} 
     
     while (loopControl == 0){
@@ -238,9 +238,9 @@ double Length4D (double a, double b, double c, double d){
  
  while (d*d-a*a-b*b-c*c < 0){
    
-   cout << "Negative value under sqrt, try again/n" << endl;
-   cin >> a >> b >> c >> d;
-   if (d*d-a*a-b*b-c*c < 0){break;}
+   cout << "Negative value under sqrt, try again \n" << endl;
+   cin >> d >> b >> c >> a;
+   if (d*d-a*a-b*b-c*c > 0){break;}
    else {
      cin.clear(); // clear the flag
      cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clear cin buffer
