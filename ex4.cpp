@@ -31,7 +31,6 @@ int main(){
    }
    else {
      loopControl = 1;
-     break;
    }
   }
 
@@ -48,7 +47,6 @@ int main(){
     }
     else{
       loopControl = 2;
-      break;
     }
   }
 
@@ -65,7 +63,6 @@ int main(){
    }  
    else {
      loopControl = 3;
-     break;
    }
   }
 
