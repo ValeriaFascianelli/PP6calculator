@@ -13,23 +13,23 @@ int main(){
 
   cout << "Give me two numbers\n";
   cin >> a >> b;
-  cout << "what operation do you want to perform: addition subtraction product fraction ? \n"; 
+  cout << "what operation do you want to perform: sum sub prod div ? \n"; 
   cin >> operation;
   
-  if (operation != "addition" && operation != "subtraction" && operation != "product" && operation != "fraction") {
+  if (operation != "sum" && operation != "sub" && operation != "prod" && operation != "div") {
     cout << "Operation not valid, try again!\n";
     return 0;
   } 
   
-  if (operation == "addition"){
+  if (operation == "sum"){
     c = a+b;
   }
   
-  if (operation == "subtraction"){
+  if (operation == "sub"){
     c = a-b;
   }
   
-  if (operation == "fraction"){
+  if (operation == "div"){
     if (b == 0) {
       cout << "Impossible dividing by zero!"<<endl;
       return 0;
@@ -37,7 +37,7 @@ int main(){
     c = a/b;
   }
   
-  if (operation == "product"){
+  if (operation == "pro"){
     c = a*b;
   }
 
