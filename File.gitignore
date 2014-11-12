@@ -1,8 +1,0 @@
-# Mac Filesystem
-.OS_Store?
-
-# Compiled Sources
-*.o
-*.so
-*.a
-*.dylib
