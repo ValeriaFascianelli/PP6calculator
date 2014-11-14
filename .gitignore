@@ -4,7 +4,7 @@
 
 
 # Mac Filesystem
-.DS_Store?
+.DS_Store
 
 # Compiled Sources
 *.o
