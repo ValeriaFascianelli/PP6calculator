@@ -27,7 +27,7 @@ double InvMass (double a, double b, double c, double d);
 
 void swap(double* a);
 
-void swapVect(int* a, int* b);
+void swapVect(int dim, double* a, int* b);
 
 void print1 (int a, double b);
 

@@ -45,8 +45,7 @@ void Momentum (double* MomentumArray){
 void Energy (double* MomentumArray, double* MassArray, double* EnergyArray){
 
   int dim = 100;
-  //std::cout << MomentumArray[56]<< std::endl;
-  for (int i = 0; i < dim; i ++){
+    for (int i = 0; i < dim; i ++){
     EnergyArray[i] = sqrt(MomentumArray[i]*MomentumArray[i] + MassArray[i]*MassArray[i]);
   }
 

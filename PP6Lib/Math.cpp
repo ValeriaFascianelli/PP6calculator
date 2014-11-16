@@ -21,16 +21,15 @@ double Prod ( double a, double b){
 }
 
 double Div ( double a, double b){
-  using namespace std;
-
+ 
   while (b == 0){
 
-    cout << "Impossible dividing by zero!/n Give me another number:"<<endl;
-    cin >> b;
+    std::cout << "Impossible dividing by zero!/n Give me another number:"<<std::endl;
+    std::cin >> b;
     if (b != 0){break;}
     else {
-      cin.clear(); // clear the flag
-      cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clear cin buffer
+      std::cin.clear(); // clear the flag
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // clear std::std::cin buffer
       continue;
     }
   } 
@@ -38,37 +37,12 @@ double Div ( double a, double b){
 }
 
 double Intercept(double a, double b){
-  using namespace std;
-  
-  while (b == 0){
-    
-    cout << "Impossible dividing by zero!/n Give me another slope:"<<endl;
-    cin >> b;
-    if (b != 0){break;}
-    else {
-      cin.clear(); // clear the flag
-      cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clear cin buffer
-      continue;
-    }
-  } 
+   
+ 
   return -(a/b);
 }
 
 void Equation (double a, double b, double c, double* result){
- using namespace std;
- 
- 
- while (a == 0 || b*b-4*a*c < 0){
-    
-    cout << "Not valid coefficients, try again/n" << endl;
-    cin >> a >> b >> c;
-    if (a != 0 && b*b-4*a*c < 0){break;}
-    else {
-      cin.clear(); // clear the flag
-      cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clear cin buffer
-      continue;
-    }
-  } 
 
  result[0] = (-b+sqrt(b*b - 4*a*c))/(2*a);
  result[1] = (-b-sqrt(b*b - 4*a*c))/(2*a);
@@ -85,16 +59,15 @@ double Length3D (double a, double b, double c){
 
 double Length4D (double a, double b, double c, double d){
 
- using namespace std;
  
  while (d*d-a*a-b*b-c*c < 0){
    
-   cout << "Negative value under sqrt, try again/n" << endl;
-   cin >> a >> b >> c >> d;
+   std::cout << "Negative value under sqrt, try again/n" << std::endl;
+   std::cin >> a >> b >> c >> d;
    if (d*d-a*a-b*b-c*c < 0){break;}
    else {
-     cin.clear(); // clear the flag
-     cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clear cin buffer
+     std::cin.clear(); // clear the flag
+     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // clear std::std::cin buffer
      continue;
    }
  } 
@@ -104,14 +77,9 @@ double Length4D (double a, double b, double c, double d){
 }
 
 double InvMass (double a, double b, double c, double d){
-  using namespace std;
-  double theta;
-  
-  using namespace std;
-  cout << "choose the angle between two momenta" << endl;
-  cin >> theta;
-  
-  return a*a + b*b + 2*((sqrt(a*a + c*c))*sqrt(b*b + d*d) - c*d*cos(theta)) ;
+ 
+    // Invarian Mass computed in the center of mass frame
+  return sqrt(a*a + b*b + 2*sqrt(a*a + c*c)*sqrt(b*b + d*d) +2*c*d);
   
 }
 
@@ -122,10 +90,10 @@ void swap(double* result){
   int b;
   int temp;
 
-  cout << "Give me two numbers to swap: \n" << endl;
+  std::cout << "Give me two numbers to swap: \n" << std::endl;
   
-  cin >> a;
-  cin >> b;
+  std::cin >> a;
+  std::cin >> b;
 
   temp = b;
   b = a;
@@ -133,47 +101,53 @@ void swap(double* result){
 
   result[0] = a;
   result[1] = b;
-  cout << "The numbers swapped are " << a << " " << b << endl;
+  std::cout << "The numbers swapped are " << a << " " << b << std::endl;
  return;
 }
 
-void swapVect (int* array, int* Index){
+void swapVect (int dim, double* array, int* Index){
 
-  int dim = 5;
-  int temp1;
-  int pos;
-  int** flag = new int*[dim];
+  double temp1;
+  int check=0;
+
+  double* flag = new double[dim];
   
+ 
   for (int j = 0; j < dim; j++){
-    flag[j] = new int;
+    flag[j] = array[j]; //flag[j][j] = array[j];
   }
 
-  // second value is the array content
-  for (int j = 0; j < dim; j++){
-    flag[j][j] = array[j];
-  }
+   
+  while(check == 0){
 
-  //std::cout << flag[0][0] << " "<< flag[1][1] << " "<< flag[2][2] << " "<< flag[3][3] <<std::endl;
-  
-   while (array[0] < array[1] || array[1] < array[2] || array[2] < array[3] || array[3] < array[4]){
-    for (int h = 0; h < dim; h ++){
+    for (int i = 0; i < dim; i++){
+      if (i == dim-1 && array[dim-1]<=array[dim-2]) check = 1;
+      if(array[i]<array[i+1]){
+	check = 0;
+	break;
+      }
+      else{continue;}
+    }
+   
+    
+    for (int h = 0; h < dim; h++){
       if (array[h] < array[h+1]) {
 	temp1 = array[h];
-	//pos = h;
 	array[h] = array[h+1];
-	//Index[h] = h+1;
 	array[h+1] = temp1;
-	//Index[h+1] = pos; 
       }
-      else continue;      
+      else continue;
     }
   }
-   for(int j = 0; j < dim; j++){
-     for(int h = 0; h < dim; h++){
-       if(array[j] == flag[h][h]) Index[j] = h;
-       else continue;
-     }
-   }
+
+  
+
+  for(int j = 0; j < dim; j++){
+        for(int h = 0; h < dim; h++){
+      if(array[j] == flag[h]) Index[j] = h;
+      else continue;
+    }
+  }
   return;
 }
 
@@ -182,16 +156,16 @@ void swapVect (int* array, int* Index){
 
 
 void print1 (int choice, double result ){
-  using namespace std;
-  if (choice == 1) cout << "The result of the operation is " << result << endl;  
-  if (choice == 2) cout << "The intercept of the line on the x axis is  " << result << endl;
-  if (choice == 4) cout << "The length of the 3D vector is " << result << endl;
-  if (choice == 5) cout << "The length of the 4D vector is " << result << endl;  
-  if (choice == 6) cout << "The invariant mass is " << result << endl;
+  
+  if (choice == 1) std::cout << "The result of the operation is " << result << std::endl;  
+  if (choice == 2) std::cout << "The intercept of the line on the x axis is  " << result << std::endl;
+  if (choice == 4) std::cout << "The length of the 3D vector is " << result << std::endl;
+  if (choice == 5) std::cout << "The length of the 4D vector is " << result << std::endl;  
+  if (choice == 6) std::cout << "The invariant mass is " << result << std::endl;
   return;
 }
 
 void print2(double* result){
-  std::cout << "The solutions of the equation are " << result[0] << " and " << result[1] <<std:: endl;
+  std::cout << "The solutions of the equation are " << result[0] << " and " << result[1] <<std::endl;
   return;
 }

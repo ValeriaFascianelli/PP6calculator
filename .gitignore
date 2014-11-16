@@ -8,6 +8,7 @@
 
 # Compiled Sources
 *.o
+*.out
 *.so
 *.a
 *.dylib
