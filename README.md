@@ -15,7 +15,7 @@ pp6calculator is distributed under the terms of the Boost Software License.
 News
 ----
 
-This is a pp6calculator, a program built up during the c++ lectures. pp6calculator contains all the operations required during lectures. The user can choose which operation he would perform. 
+This is a pp6calculator, a program built up during the c++ lectures. pp6calculator contains all the operations required during lectures. The user can choose which operation he would like to perform. 
 To build the code, go to the pp6calculator.build directory and do the command "make".
 After that it is possible to run the program. 
 The program will ask to choose a lecture from different day, after that it will be asked to choose a different operation or physics exercise from that particular lecture.
