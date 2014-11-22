@@ -14,8 +14,6 @@ void ReadFile(){
 
   double** muPlus = new double*[1000];
   double** muMinus = new double*[1000];
-  
-  
 
   for (int y = 0; y < 1000; y++){
     muPlus[y] = new double[4];
@@ -25,7 +23,6 @@ void ReadFile(){
     muMinus[y] = new double[4];
   }
   
- 
   FileReader f("observedparticles.txt");
   
   // Only process if the file is open/valid
@@ -76,7 +73,7 @@ void ReadFile(){
  
 
   // Compute the invariant mass for each pair of mu+/mu- [GeV]
-  // Using the InvMass function stored in Math.cpp
+  // Using the InvMass function stored in Math.cppx
 
   double pMuPlus;
   double pMuMinus;
@@ -106,14 +103,19 @@ void ReadFile(){
     }
   }
   
-  swapVect(dim,invMass,Index);
+  Sorter(dim,invMass,Index);
   std::cout << "The 10 highest invariant masses and their associated mu+/mu- event pairs are:" <<std::endl;
 
   
   for (int i = 0; i < 10; i++){
     std::cout <<i<< ". " << "Invariant mass = " << invMass[i] << " from mu+/mu- event pairs: " << event[Index[i]][0] << " mu+ event and " << event[Index[i]][1] << " mu- event"<<std::endl;
   }
-  
+  delete[] muPlus;
+  delete[] muMinus;
+  delete[] invMass;
+  delete[] event;
+  delete[] Index;
+
   return;
 }
 
