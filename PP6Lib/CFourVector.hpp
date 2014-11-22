@@ -41,12 +41,7 @@ public:
   
   //member variables
 private:
-
-  // double fx;
-  //double fy;
-  //double fz;
   double ft;
-  
- };
+};
 
 #endif
