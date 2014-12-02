@@ -10,14 +10,15 @@
 
 double* Mass (int dim){ //, double* MassArray){
 
-  srand (time(NULL));
-  // std::random_device rseed;
-  //std::mt19937 rgen(rseed()); // mersenne_twister
+  // srand (time(NULL));
+  std::uniform_real_distribution<double>dist(0,100);
+  std::random_device rseed;
+  std::mt19937 rgen(rseed()); // mersenne_twister
   double* MassArray = new double[dim];
   //double* MassArray = Mass;
   
   for (int i = 0; i < dim; i++){
-    MassArray[i] = rand()%100;//std::uniform_int_distribution<int>(0,100); // [0,100]
+    MassArray[i] = dist(rgen);//std::uniform_int_distribution<int>(0,100); // [0,100]
   }
   
   return MassArray;

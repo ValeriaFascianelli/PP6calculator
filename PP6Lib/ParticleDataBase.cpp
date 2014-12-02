@@ -23,8 +23,8 @@ void ParticleDataBase(){
   std::cout << "2. Charge" << std::endl;
   std::cout << "3. PDG Code" << std::endl;
   
-  double info;
-  info = GetNumber();
+  int info;
+  info = GetNumber<int>();
   
   if (info == 1){
     double Mass = particle.getMassGeV(PDG);

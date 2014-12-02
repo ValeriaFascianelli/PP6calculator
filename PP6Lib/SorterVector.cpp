@@ -9,14 +9,14 @@ void SorterVector(){
   std::vector<int> Vector;
   int i = 0;
   //srand(time(NULL));
-  //std::random_device rseed;
-  //std::mt19937 rgen(rseed()); // mersenne_twister
-  //std::uniform_int_distribution<int>(0,100);
-  std::mt19937 mt(1729);
-  std::uniform_int_distribution<int> dist(0,99);
+  std::random_device rseed;
+  std::mt19937 rgen(rseed()); // mersenne_twister
+  std::uniform_int_distribution<int>dist(0,100);
+  //std::mt19937 mt(1729);
+  //std::uniform_int_distribution<int> dist(0,99);
 
   while(i < 10){
-    Vector.push_back(dist(mt));
+    Vector.push_back(dist(rgen));
     i++;
   }
   std::cout<< "The random numbers are: " << std::endl;

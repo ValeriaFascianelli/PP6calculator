@@ -1,7 +1,8 @@
 #include <iostream>
 
-double GetNumber(){
-  double res(0);
+template <typename T = double>
+T GetNumber(){
+  T res(0);
 
   std::cin >> res;
 
