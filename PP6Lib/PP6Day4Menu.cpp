@@ -17,7 +17,7 @@ void PP6Day4Menu(){
   std::cout << "4. Sorter the 10 largest masses from observed_particle.dat file" << std::endl;
   
   int choice;
-  choice = GetNumber();
+  choice = GetNumber<int>();
   
   if (choice == 1){ReadParticleDataBase();} // it prints the content of the pdg.dat file on the screen
   

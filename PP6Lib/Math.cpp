@@ -68,9 +68,9 @@ double InvMass (double a, double b, double c, double d){
 }
 
 void Swap(){
-  int a;
-  int b;
-  int temp;
+  double a;
+  double b;
+  double temp;
 
   std::cout << "Enter two numbers: \n" << std::endl;
   

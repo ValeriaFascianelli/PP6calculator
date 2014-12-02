@@ -10,8 +10,8 @@ void EnSigma(){
   
   int dim;
   std::cout << "Enter how many mass values you want to generate: "<< std::endl;
-  dim = GetNumber();
-  double* MassArray = Mass(dim); // rimane conseravto??? new??
+  dim = GetNumber<int>();
+  double* MassArray = Mass(dim); 
   double* MomentumArray = Momentum(dim);
   double* EnergyArray =  Energy(dim, MassArray, MomentumArray);
   double E = MeanEnergy(dim, EnergyArray); 

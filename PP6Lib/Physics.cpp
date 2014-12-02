@@ -6,7 +6,6 @@
 
 #include "Physics.hpp"
 #include "Math.hpp"
-#include "GetNumber.hpp"
 
 double* Mass (int dim){ //, double* MassArray){
 
