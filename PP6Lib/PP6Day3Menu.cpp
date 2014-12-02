@@ -14,10 +14,10 @@
 void PP6Day3Menu(){
 
   while(true){
-    std::cout << "Enter a choice: "<<std::endl;
+    std::cout << "Enter a choice: " << std::endl;
     std::cout << "1. Compute the interval of a 4 vector"<<std::endl;
     std::cout << "2. Compute a Lorentz boost along z axis"<<std::endl;
-    std::cout << "3. Sorting the 10 largest masses from Day2Menu"<<std::endl;
+    std::cout << "3. Sorter the 10 largest masses from observed_particle.dat file"<<std::endl;
     std::cout << "q .Quite"<<std::endl;
     std::cout << "<<";
     
@@ -72,6 +72,7 @@ void PP6Day3Menu(){
 
       CParticle* muPlus = new CParticle[1000];
       CParticle* muMinus = new CParticle[1000];
+     
       
       // Set the mass of muon parrticle
       
@@ -108,11 +109,12 @@ void PP6Day3Menu(){
 	    muMinus[muM].SetTMomentum(f.getFieldAsDouble(1)); // event
 	    muM++;
 	  }
+	   // std::cout << "mu minus" << muMinus[0].GetXMomentum() << std::endl;
 	   // Check that input is o.k.
 	   if (f.inputFailed()) break;
 	}
       }
-      //std::cout << muPlus[0].GetTMomentum()<<std::endl;
+     
       // Compute the invariant mass for each pair of mu+/mu- [GeV]
       // Using the InvMass function stored in Math.cppx
       
@@ -133,18 +135,15 @@ void PP6Day3Menu(){
 	for(int j = 0; j < muM; j++){  // loop over mu-
 	  pMuPlus = muPlus[i].GetMagMomentum();
 	  pMuMinus = muMinus[j].GetMagMomentum();
-	  // std::cout << "ciao"<<std::endl;
-	  invMass[k] = sqrt(InvMass(muPlus[i].GetMassGeV(), muMinus[j].GetMassGeV(), pMuPlus, pMuMinus));
-	  //std::cout << "ciao"<<std::endl;
+	  //std::cout << "MagMomentum" << pMuPlus << std::endl;
+	  invMass[k] = InvMass(muPlus[i].GetMassGeV(), muMinus[j].GetMassGeV(), pMuPlus, pMuMinus);
 	  event[k][0] = muPlus[i].GetTMomentum();
-	  //std::cout << "ciao"<<std::endl;
 	  event[k][1] = muMinus[j].GetTMomentum();
 	  k++;
 	}
       }
-      //std::cout << "ciao"<<std::endl;
+      
       Sorter(dim,invMass,Index);
-      //std::cout << "ciao"<<std::endl;
       std::cout << "The 10 highest invariant masses and their associated mu+/mu- event pairs are:" <<std::endl;
       for (int i = 0; i < 10; i++){
 	std::cout <<i<< ". " << "Invariant mass = " << invMass[i] << " from mu+/mu- event pairs: " << event[Index[i]][0] << " mu+ event and " << event[Index[i]][1] << " mu- event"<<std::endl;

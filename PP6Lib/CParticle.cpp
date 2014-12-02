@@ -55,7 +55,6 @@ double CParticle::GetTMomentum(){
   return tMomentum;
 }
 double CParticle::GetMagMomentum(){
-  //CThreeVector a;
   double s = CThreeVector::GetLength();
   return s;
 }

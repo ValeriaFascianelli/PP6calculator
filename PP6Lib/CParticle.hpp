@@ -1,7 +1,9 @@
-#ifndef PP6DAY3MENU_CPARTICLE_HH
-#define PP6DAY3MENU_CPARTICLE_HH
+#ifndef PP6CALCULATOR_CPARTICLE_HH
+#define PP6CALCULATOR_CPARTICLE_HH
 
+#include "CFourVector.hpp"
 
+//Class which inherits from CFourVector class
 class CParticle: public CFourVector{
  public:
 

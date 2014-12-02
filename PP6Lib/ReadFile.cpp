@@ -94,7 +94,7 @@ void ReadFile(){
      
 	pMuPlus = sqrt(muPlus[i][0]*muPlus[i][0]+muPlus[i][1]*muPlus[i][1]+muPlus[i][2]*muPlus[i][2]);
 	pMuMinus = sqrt(muMinus[j][0]*muMinus[j][0]+muMinus[j][1]*muMinus[j][1]+muMinus[j][2]*muMinus[j][2]);
-	invMass[k] = sqrt(InvMass(muonMass, muonMass, pMuPlus, pMuMinus));
+	invMass[k] = InvMass(muonMass, muonMass, pMuPlus, pMuMinus);
 	event[k][0] = 	muPlus[i][3];
 	event[k][1] = 	muMinus[j][3];
 	//std::cout << k << " Invariant " << invMass[k] << std::endl;
