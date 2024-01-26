@@ -17,7 +17,7 @@ News
 
 This is a pp6calculator, a program built up during the c++ lectures.
 pp6calculator contains exercises and homework required during lectures. 
-The user can choose which operation he would like to perform from different lecture-day menu.
+The user can choose which operation to perform from different lecture-day menu.
 To build the code, go to the pp6calculator.build directory and do the command "make".
 After that it is possible to run the program. 
 The program will show you different menus:
